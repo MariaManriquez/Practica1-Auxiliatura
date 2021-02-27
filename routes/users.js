@@ -4,7 +4,6 @@ var USER = require("../database/user");
 var JWT=require("jsonwebtoken");
 var middleware=require("./middleware");
 
-
 router.get("/user",middleware, (req, res) => {
     var filter={};
     var params= req.query;
