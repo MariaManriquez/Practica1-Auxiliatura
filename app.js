@@ -37,6 +37,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
 var port = 8000;
 app.listen(port, () => {
   console.log("Corriendo " + port);

@@ -4,13 +4,13 @@ var middleware=async(req,res, next)=>{
     var token=req.headers["authorization"];
 
     if(token==null){
-        res.status(403).json({error: "token nulo"});
+        res.status(403).json({error: "Token nulo"});
         return;
     }
     var decoded =JWT.verify(token, 'SeminarioDeSistemas');
     console.log(decoded);
     if(decoded==null){
-        res.status(403).json({error: "no tiene acceso token falso"});
+        res.status(403).json({error: "No tiene acceso token falso"});
         return;
     }
     var iduser=decoded.data;
@@ -18,7 +18,7 @@ var middleware=async(req,res, next)=>{
     var docs =await USER.findOne({_id: iduser});
     console.log(docs);
     if(docs==null){
-        res.status(403).json({error: " no existe usuario"});
+        res.status(403).json({error: " No existe usuario"});
         return;
     }
     var services =req.originalUrl.substr(1, 100);
@@ -29,4 +29,4 @@ var middleware=async(req,res, next)=>{
     next();
 
 }
-module.exports=middleware;
+module.exports = middleware;

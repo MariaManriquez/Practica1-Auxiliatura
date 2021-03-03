@@ -27,7 +27,7 @@ router.get("/user",middleware, (req, res) => {
     sort(order);
     restDB.exec((err, docs)=>{
         if(err){
-            res.status(500).json({msn: "Error en la coneccion del servidor"});
+            res.status(500).json({msn: "Error en la conexion del servidor"});
             return;
         }
         res.status(200).json(docs);
@@ -35,12 +35,11 @@ router.get("/user",middleware, (req, res) => {
     });
 });
 
-
 router.post("/user", (req, res) => {
   var userRest = req.body;
   
   if (userRest.password == null) {
-      res.status(300).json({msn: "El password es necesario...."});
+      res.status(300).json({msn: "El password es necesario..."});
       return;
   }
   if (userRest.password.length < 5) {
@@ -76,7 +75,7 @@ router.post("/user", (req, res) => {
 router.post("/login", async(req, res) => {
     var body = req.body;
     if (body.email == null) {
-        res.status(300).json({msn: "El email es necesario"});
+        res.status(300).json({msn: "El e-mail es necesario"});
              return;
     }
     if (body.password == null) {
